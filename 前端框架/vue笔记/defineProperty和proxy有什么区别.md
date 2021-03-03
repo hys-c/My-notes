@@ -1,0 +1,11 @@
+#### defineProperty和proxy有什么区别
+
+①defineProperty无法监听数组的变化，proxy可以监听数组变化
+
+②defineProperty只能劫持对象的属性,proxy直接监听对象而不是对象属性
+
+③defineProperty是修改对象属性，proxy则是直接返回新对象
+
+④defineProperty兼容性比Proxy要好，而且proxy的兼容性问题无法通过polyfill抹平
+
+⑤proxy还有一些拦截方法，如apply、ownKeys、deleteProperty，但是defineProperty没有
