@@ -753,17 +753,22 @@
 	const XxxContext = React.createContext()  
 	
 2) 渲染子组时，外面包裹xxxContext.Provider, 通过value属性给后代组件传递数据：
+	import xxxContext ...
 	<xxxContext.Provider value={数据}>
 		子组件
-    </xxxContext.Provider>
+        </xxxContext.Provider>
     
 3) 后代组件读取数据：
 
 	//第一种方式:仅适用于类组件 
+	  import xxxContext ...
+		
 	  static contextType = xxxContext  // 声明接收context
 	  this.context // 读取context中的value数据
 	  
 	//第二种方式: 函数组件与类组件都可以
+	  import xxxContext ...
+	
 	  <xxxContext.Consumer>
 	    {
 	      value => ( // value就是context中的value数据
@@ -776,7 +781,15 @@
 #### 注意
 
 	在应用开发中一般不用context, 一般都用它的封装react插件
-
+#### API
+     1. React.createContext('defaultValue')
+     创建context容器，默认值为defaultValue
+     2. Context.Provider
+     包裹子组件，将context传入子组件，有一个props  value，初始化值
+     3. Context.Consumer
+     可将context传递给类组件和函数组件，里面是一个函数，第一个参数是context的value
+     4. Class.contextType
+     将context注入类组件
 
 
 <hr/>
